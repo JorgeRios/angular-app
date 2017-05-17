@@ -1,0 +1,7 @@
+{"users":[
+	{"nombre": "jorge", "edad" :12},
+	{"nombre": "lalo", "edad" :14},
+	{"nombre": "luis", "edad" :28},
+	{"nombre": "francisco", "edad" :13},
+	{"nombre": "hugo", "edad" :34}
+]}
