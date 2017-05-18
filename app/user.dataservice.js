@@ -1,25 +1,28 @@
+(function() {
 angular
     .module('app')
-    .factory('usersData', usersData);
+    .factory('dataservice', dataservice);
 
-usersData.$inject = ['$http', 'logger'];
+dataservice.$inject = ['$http'];
 
-function usersData($http, logger) {
-    return {
-        getUsers: getUsers
-    };
+function dataservice($http) {
+  var service = {
+    getUsers: getUsers
+  }
 
-    function getUsers() {
-      return $http.get('./users.data.json')
-      .then(getComplete)
-      .catch(getFailed);
+  function getUsers() {
+    return $http.get('app/users.data.json')
+    .then(getComplete)
+    .catch(getFailed);
 
-      function getComplete(response) {
-        return response.data.results;
-      }
-
-      function getFailed(error) {
-        logger.error('XHR Failed for getAvengers.' + error.data);
-      }
+    function getComplete(response) {
+      return response.data.users;
     }
+
+    function getFailed(error) {
+      //logger.error('XHR Failed for getAvengers.' + error.data);
+    }
+  }
+  return service;
 }
+})();

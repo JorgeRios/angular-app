@@ -5,9 +5,16 @@
 <script type="text/javascript" src="./app/app.controller.js"></script>
 	<title>Crud</title>
 </head>
-<body ng-controller="AppController as app">
-<h1>{{ app.title }}</h1>
+<body ng-controller="AppController">
+<div ng-init="init()">
+<h1>{{ title }}</h1>
+<ul>
+	<li ng-repeat="user in users track by $index">
+	{{user.nombre}}
+	</li>
+</ul>
+</div>
 
-<script type="text/javascript" src="./app/user.controller.js"></script>
 </body>
+<script type="text/javascript" src="./app/user.dataservice.js"></script>
 </html>
